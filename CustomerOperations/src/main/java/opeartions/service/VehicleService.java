@@ -10,10 +10,11 @@ import operations.models.Vehicle;
 
 public class VehicleService {
 	static Scanner scan = new Scanner(System.in);
+	static VehicleDao vehicleDao;
 	public static void getAllVehicles() {
 		List<Vehicle> vehicleList = new ArrayList<>();
 		try {
-			VehicleDao vehicleDao = new VehicleDao();
+			vehicleDao = new VehicleDao();
 			vehicleDao.getAllVehicles(vehicleList);
 			for(Vehicle v: vehicleList) {
 				System.out.println(v);
@@ -28,7 +29,7 @@ public class VehicleService {
 		System.out.println("Enter vid to find Vehicle");
 		int id=scan.nextInt();
 		try {
-			VehicleDao vehicleDao = new VehicleDao();
+			vehicleDao = new VehicleDao();
 			Vehicle v=vehicleDao.getThatVehicle(id);
 			if(v!=null) {
 				System.out.println(v);
@@ -42,13 +43,13 @@ public class VehicleService {
 		
 		
 	}
-	//------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
 
 	public static void removeVehicle() {
 		System.out.println("Enter vid to remove vehicle:");
 		int id=scan.nextInt();
 		try {
-			VehicleDao vehicleDao = new VehicleDao();
+			vehicleDao = new VehicleDao();
 			int isRemoved=vehicleDao.removeThatVehicle(id);
 			if(isRemoved !=0) {
 				System.out.println("Vehicle Deleted Succesfully!");
@@ -60,14 +61,14 @@ public class VehicleService {
 			e.printStackTrace();
 		}
 	}
-	//------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
 
 	public static void updateVehicle() {
 		System.out.println("Enter vid to update vehicle:");
 		int id=scan.nextInt();
 		System.out.println("Enter model of vehicle to update:");
 		try {
-			VehicleDao vehicleDao = new VehicleDao();
+			vehicleDao = new VehicleDao();
 			int isUpdated=vehicleDao.changeThatVehicle(id,scan.next());
 			if(isUpdated !=0) {
 				System.out.println(isUpdated+" Vehicle Updated Succesfully!");
@@ -79,11 +80,11 @@ public class VehicleService {
 			e.printStackTrace();
 		}
 	}
-	//------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
 
 	public static void addVehicle() {
 		try {
-			VehicleDao vehicleDao = new VehicleDao();
+			vehicleDao = new VehicleDao();
 			int isAdded=vehicleDao.addThisVehicle(scan.nextInt(),scan.next(),scan.next());
 			if(isAdded !=0) {
 				System.out.println(isAdded+" Vehicle Inserted Succesfully!");
@@ -91,7 +92,6 @@ public class VehicleService {
 				System.out.println("Vehicle Does not Exists...");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

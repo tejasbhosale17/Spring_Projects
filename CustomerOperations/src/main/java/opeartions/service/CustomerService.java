@@ -10,7 +10,8 @@ import operations.models.Customer;
 
 public class CustomerService {
 		 static Scanner scan = new Scanner(System.in);
-	
+
+		 
 	public static void getAllCustomers() {
 		List<Customer> customerList= new ArrayList<>(); 
 		try {
