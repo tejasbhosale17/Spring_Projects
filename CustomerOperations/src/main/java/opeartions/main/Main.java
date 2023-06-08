@@ -9,7 +9,7 @@ public class Main {
 		System.out.println("Main Function Started!");
 		Main m= new Main();
 		m.mainmenu.TheMainMenu();
-		System.out.println("Main Function Ended!");
+		System.out.println("Thank You for Visit!");
 		
 	}
 

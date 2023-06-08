@@ -10,7 +10,7 @@ import operations.models.Customer;
 
 public class CustomerService {
 		 static Scanner scan = new Scanner(System.in);
-
+		 static VehicleService vehicleService;
 		 
 	public static void getAllCustomers() {
 		List<Customer> customerList= new ArrayList<>(); 
@@ -26,6 +26,29 @@ public class CustomerService {
 			e.printStackTrace();
 		}		
 	}
+
+	
+//------------------------------------------------------------------------------------
+//	public static void get() {
+//		System.out.println("Enter mobile no to search the customer:");
+//		long mobile=scan.nextLong();
+//		try {
+//			CustomerDao customerDao = new CustomerDao();
+//			Customer customer =new Customer();
+//			customer=customerDao.getThatCustomer(mobile);
+//			if(customer!=null) {
+//				System.out.println(customer);
+//			}else {
+//				System.out.println("Customer Does not exists!");
+//			}
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//	}
+//	
 //-------------------------------------------------------------------------------------
 	public static void getSpecificCustomer() {
 		System.out.println("Enter mobile no to search the customer:");
@@ -92,16 +115,21 @@ public class CustomerService {
 	public static void addCustomer() {
 		try {
 			CustomerDao customerDao = new CustomerDao();
-			int isInserted=customerDao.addThisCustomer(scan.nextInt(),scan.next(),scan.nextLong(),scan.next(),scan.next());
+			System.out.println("Enter cid,name,mobike,email,address:");
+			int customer_id=scan.nextInt();
+			int isInserted=customerDao.addThisCustomer(customer_id,scan.next(),scan.nextLong(),scan.next(),scan.next());
 			if(isInserted>0){
 				System.out.println("Customer Added Succesfully!");
 			}else {
 				System.out.println("Custommer does not exists...");
 			}
+			
+			vehicleService.addVehicle(customer_id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 	}
 

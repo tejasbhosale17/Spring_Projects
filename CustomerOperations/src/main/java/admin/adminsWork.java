@@ -1,17 +1,18 @@
-package opeartions.Menu;
+package admin;
 
 import java.util.Scanner;
 
 import opeartions.service.CustomerService;
+import opeartions.service.VehicleService;
 
-public class CMenu {
+public class adminsWork {
 	public static int menu() {
 		System.out.println("0.Exit");
 		System.out.println("1.Fetch All Customers");
 		System.out.println("2.Fetch Specific Customer");
 		System.out.println("3.Delete Customer");
 		System.out.println("4.Update Customer");
-		System.out.println("5.Add Customer");
+		System.out.println("5.Add Customer & vehicle Details:");
 		System.out.print("Enter your choice = ");
 		System.out.println("");
 		return new Scanner(System.in).nextInt();
@@ -44,8 +45,11 @@ public static void CustomerMain() {
 			break;
 
 		case 5:
+				System.out.println("Add Customer Details:");
 				CustomerService.addCustomer();
-				System.out.println("");
+				System.out.println("Add vehicle Details:");
+//				VehicleService.addVehicle();
+//				System.out.println("Enter Vehicle Number:");
 			break;
 
 			

@@ -5,7 +5,18 @@ public class Customer {
 	String name;
 	Long mobile;
 	String email;
-	String addr;
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Customer(int id, String name, Long mobile, String email, String addr) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mobile = mobile;
+		this.email = email;
+		this.addr = addr;
+	}
 	public int getId() {
 		return id;
 	}
@@ -36,20 +47,11 @@ public class Customer {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public Customer() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Customer(int id, String name, Long mobile, String email, String addr) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.mobile = mobile;
-		this.email = email;
-		this.addr = addr;
-	}
+	String addr;
 	@Override
 	public String toString() {
-		return "customer [id=" + id + ", name=" + name + ", mobile=" + mobile + ", email=" + email + ", addr=" + addr + "]";
+		return "Customer [id=" + id + ", name=" + name + ", mobile=" + mobile + ", email=" + email + ", addr=" + addr
+				+ "]";
 	}
+	
 }

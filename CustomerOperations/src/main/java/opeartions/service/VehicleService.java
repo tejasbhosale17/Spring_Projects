@@ -11,6 +11,8 @@ import operations.models.Vehicle;
 public class VehicleService {
 	static Scanner scan = new Scanner(System.in);
 	static VehicleDao vehicleDao;
+	static CustVService custVService;
+	
 	public static void getAllVehicles() {
 		List<Vehicle> vehicleList = new ArrayList<>();
 		try {
@@ -82,15 +84,18 @@ public class VehicleService {
 	}
 //------------------------------------------------------------------------------------
 
-	public static void addVehicle() {
+	public static void addVehicle(int customer_id) {
 		try {
 			vehicleDao = new VehicleDao();
-			int isAdded=vehicleDao.addThisVehicle(scan.nextInt(),scan.next(),scan.next());
+			System.out.println("enter vid,company,model");
+			int vehicle_id=scan.nextInt();
+			int isAdded=vehicleDao.addThisVehicle(vehicle_id,scan.next(),scan.next());
 			if(isAdded !=0) {
 				System.out.println(isAdded+" Vehicle Inserted Succesfully!");
 			}else {
 				System.out.println("Vehicle Does not Exists...");
 			}
+			custVService.addCustVehicle(customer_id,vehicle_id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

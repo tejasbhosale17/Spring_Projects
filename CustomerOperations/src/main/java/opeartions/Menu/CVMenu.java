@@ -2,50 +2,50 @@ package opeartions.Menu;
 
 import java.util.Scanner;
 
+import opeartions.service.CustVService;
 import opeartions.service.VehicleService;
 
-public class VMenu {
-
+public class CVMenu {
 	public static int menu() {
 		System.out.println("0.Exit");
-		System.out.println("1.Fetch All vehicles");
-		System.out.println("2.Fetch Specific vehicle");
-		System.out.println("3.Delete vehicle");
-		System.out.println("4.Update vehicle");
-		System.out.println("5.Add vehicle");
+		System.out.println("1.Fetch All Customer Vehicles");
+		System.out.println("2.Fetch Specific Customer Vehicle");
+		System.out.println("3.Delete Customer Vehicle");
+		System.out.println("4.Update Customer Vehicle");
+		System.out.println("5.Add Customer Vehicle");
 		System.out.print("Enter your choice = ");
 		System.out.println("");
 		return new Scanner(System.in).nextInt();
 	}
 		
-	public static void VehicleMain() {
-		System.out.println("Choose Vehicle Operations");
+	public static void CustVehicleMain() {
+		System.out.println("Choose Customer Vehicle Operations");
 		int choice;
 		Scanner scan = new Scanner(System.in);
 		while((choice = menu())!=0) {
 			switch (choice) {
 			case 1:
-					VehicleService.getAllVehicles();
+					CustVService.getAllCustVehicles();
 					System.out.println("");
 				break;
 
 			case 2:
-				VehicleService.getSpecificVehicle();
+				CustVService.getSpecificCustVehicle();
 				System.out.println("");
 				break;
 
 			case 3:
-				VehicleService.removeVehicle();
+				CustVService.removeCustVehicle();
 				System.out.println("");
 				break;
 
 			case 4:
-				VehicleService.updateVehicle();
+				CustVService.updateCustVehicle();
 				System.out.println("");
 				break;
 
 //			case 5:
-//				VehicleService.addVehicle();
+//				CustVService.addCustVehicle();
 //				System.out.println("");
 //				break;
 
@@ -57,5 +57,4 @@ public class VMenu {
 		}
 	
 	}
-
 }
