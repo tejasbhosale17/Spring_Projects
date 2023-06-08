@@ -23,7 +23,7 @@ public class PartDao {
 			PreparedStatement pmt = con.prepareStatement(q1);
 			ResultSet rs = pmt.executeQuery();
 			while(rs.next()) {
-				Part p = new Part(rs.getInt("pid"),rs.getString("pname"),rs.getString("description"),rs.getDouble("price"));
+				Part p = new Part(rs.getInt("part_id"),rs.getString("part_name"),rs.getString("description"),rs.getDouble("price"));
 				partList.add(p);
 			}
 			
@@ -35,13 +35,13 @@ public class PartDao {
 //-----------------------------------------------------------------------------------
 
 	public Part findThisPart(int id) {
-		String q2="select * from part where pid=?";
+		String q2="select * from part where part_id=?";
 		try {
 			PreparedStatement pmt= con.prepareStatement(q2);
 			pmt.setInt(1, id);
 			ResultSet rs=pmt.executeQuery();
 			if(rs.next()) {
-				Part p =new Part(id,rs.getString("pname"),rs.getString("description"),rs.getDouble("price"));
+				Part p =new Part(id,rs.getString("part_name"),rs.getString("description"),rs.getDouble("price"));
 				return p;
 			}
 			
@@ -55,7 +55,7 @@ public class PartDao {
 	//-----------------------------------------------------------------------------------
 
 	public int removeThisPart(int id) {
-		String q3="delete from part where pid=?";
+		String q3="delete from part where part_id=?";
 		int npr=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q3);
@@ -76,7 +76,7 @@ public class PartDao {
 
 	//-----------------------------------------------------------------------------------
 	public int updateThisPart(int id, double price) {
-		String q4="update part set price=? where pid=?";
+		String q4="update part set price=? where part_id=?";
 		int npu=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q4);

@@ -2,13 +2,13 @@ package operations.models;
 
 public class Vehicle {
 
-	int vid;
+	int vehicle_id;
 	String company;
 	String model;
 	
 	public Vehicle(int vid, String company, String model) {
 		super();
-		this.vid = vid;
+		this.vehicle_id = vid;
 		this.company = company;
 		this.model = model;
 	}
@@ -18,10 +18,10 @@ public class Vehicle {
 	}
 	
 	public int getVid() {
-		return vid;
+		return vehicle_id;
 	}
 	public void setVid(int vid) {
-		this.vid = vid;
+		this.vehicle_id = vid;
 	}
 	public String getCompany() {
 		return company;
@@ -38,6 +38,6 @@ public class Vehicle {
 	
 	@Override
 	public String toString() {
-		return "Vehicle [vid=" + vid + ", company=" + company + ", model=" + model + "]";
+		return "Vehicle [vid=" + vehicle_id + ", company=" + company + ", model=" + model + "]";
 	}
 }

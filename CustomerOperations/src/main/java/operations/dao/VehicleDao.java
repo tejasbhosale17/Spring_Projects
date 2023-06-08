@@ -24,7 +24,7 @@ public class VehicleDao {
 			PreparedStatement pmt= con.prepareStatement(q1);
 			ResultSet rs= pmt.executeQuery();
 			while(rs.next()) {
-				Vehicle v =new Vehicle(rs.getInt("vid"), rs.getString("company"), rs.getString("model"));
+				Vehicle v =new Vehicle(rs.getInt("vehicle_id"), rs.getString("company"), rs.getString("model"));
 				vehicleList.add(v);
 			}
 		} catch (SQLException e) {
@@ -36,13 +36,13 @@ public class VehicleDao {
 //--------------------------------------------------------------------------------------
 
 	public Vehicle getThatVehicle(int id) {
-		String q2="select * from vehicle where vid=?";
+		String q2="select * from vehicle where vehicle_id=?";
 		try {
 			PreparedStatement pmt =con.prepareStatement(q2);
 			pmt.setInt(1, id);
 			ResultSet rs= pmt.executeQuery();
 			if(rs.next()) {
-				Vehicle v = new Vehicle(rs.getInt("vid"), rs.getString("company"),rs.getString("model"));
+				Vehicle v = new Vehicle(rs.getInt("vehicle_id"), rs.getString("company"),rs.getString("model"));
 				return v;
 			}
 		} catch (SQLException e) {
@@ -55,7 +55,7 @@ public class VehicleDao {
 
 
 	public int removeThatVehicle(int id) {
-		String q3="delete from vehicle where vid=?";
+		String q3="delete from vehicle where vehicle_id=?";
 		int nvr=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q3);
@@ -70,7 +70,7 @@ public class VehicleDao {
 
 
 	public int changeThatVehicle(int id, String model) {
-		String q4="update vehicle set model=? where vid=?";
+		String q4="update vehicle set model=? where vehicle_id=?";
 		int nvu=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q4);

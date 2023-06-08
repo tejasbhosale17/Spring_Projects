@@ -24,7 +24,7 @@ public class CustomerDao {
 			PreparedStatement pmt=con.prepareStatement(q1);
 			ResultSet rs=pmt.executeQuery();
 			while(rs.next()) {
-				Customer c= new Customer(rs.getInt("id"),rs.getString("name"),rs.getLong("mobile"),rs.getString("email"),rs.getString("address"));
+				Customer c= new Customer(rs.getInt("customer_id"),rs.getString("customer_name"),rs.getLong("mobile"),rs.getString("email"),rs.getString("address"));
 				customerList.add(c);
 			}
 		} catch (SQLException e) {
@@ -43,7 +43,7 @@ public class CustomerDao {
 			pmt.setLong(1, mobile);
 			ResultSet rs = pmt.executeQuery();
 			if(rs.next()) {
-				Customer c= new Customer(rs.getInt("id"),rs.getString("name"),mobile,rs.getString("email"),rs.getString("address"));
+				Customer c= new Customer(rs.getInt("customer_id"),rs.getString("customer_name"),mobile,rs.getString("email"),rs.getString("address"));
 				return c;
 			}
 						
@@ -56,7 +56,7 @@ public class CustomerDao {
 //-------------------------------------------------------------------------------
 	
 	public int removeThatCustomer(int id) {
-		String q3="delete from customer where id=?";
+		String q3="delete from customer where customer_id=?";
 		int ncr=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q3);
@@ -72,7 +72,7 @@ public class CustomerDao {
 	//-------------------------------------------------------------------------------
 
 	public int updateThisCustomer(int id, String email, String addr) {
-		String q4="update customer set email=?, address=? where id=?";
+		String q4="update customer set email=?, address=? where customer_id=?";
 		int ncu=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q4);

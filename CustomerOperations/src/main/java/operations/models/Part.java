@@ -2,15 +2,15 @@ package operations.models;
 
 public class Part {
 
-	int pid;
-	String pname;
+	int part_id;
+	String part_name;
 	String description;
 	double price;
 	
 	public Part(int pid, String pname, String description, double price) {
 		super();
-		this.pid = pid;
-		this.pname = pname;
+		this.part_id = pid;
+		this.part_name = pname;
 		this.description = description;
 		this.price = price;
 	}
@@ -20,16 +20,16 @@ public class Part {
 		// TODO Auto-generated constructor stub
 	}
 	public int getPid() {
-		return pid;
+		return part_id;
 	}
 	public void setPid(int pid) {
-		this.pid = pid;
+		this.part_id = pid;
 	}
 	public String getPname() {
-		return pname;
+		return part_name;
 	}
 	public void setPname(String pname) {
-		this.pname = pname;
+		this.part_name = pname;
 	}
 	public String getDescription() {
 		return description;
@@ -45,6 +45,6 @@ public class Part {
 	}
 	@Override
 	public String toString() {
-		return "Part [pid=" + pid + ", pname=" + pname + ", description=" + description + ", price=" + price + "]";
+		return "Part [pid=" + part_id + ", pname=" + part_name + ", description=" + description + ", price=" + price + "]";
 	} 
 }

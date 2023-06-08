@@ -3,6 +3,7 @@ package operations.models;
 public class Customer_vehicles {
 	String vehicle_number;
 	int customer_id;
+	int vehicle_id;
 	public Customer_vehicles() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -37,5 +38,4 @@ public class Customer_vehicles {
 		return "customer_vehicles [vehicle_number=" + vehicle_number + ", customer_id=" + customer_id + ", vehicle_id="
 				+ vehicle_id + "]";
 	}
-	int vehicle_id;
 }

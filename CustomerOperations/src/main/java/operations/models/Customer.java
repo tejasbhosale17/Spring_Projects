@@ -1,33 +1,34 @@
 package operations.models;
 
 public class Customer {
-	int id;
-	String name;
+	int customer_id;
+	String customer_name;
 	Long mobile;
 	String email;
+	String address;
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Customer(int id, String name, Long mobile, String email, String addr) {
+	public Customer(int customer_id, String customer_name, Long mobile, String email, String address) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.customer_id = customer_id;
+		this.customer_name = customer_name;
 		this.mobile = mobile;
 		this.email = email;
-		this.addr = addr;
+		this.address = address;
 	}
-	public int getId() {
-		return id;
+	public int getCustomer_id() {
+		return customer_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
 	}
-	public String getName() {
-		return name;
+	public String getCustomer_name() {
+		return customer_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
 	}
 	public Long getMobile() {
 		return mobile;
@@ -41,17 +42,16 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddr() {
-		return addr;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	String addr;
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", mobile=" + mobile + ", email=" + email + ", addr=" + addr
-				+ "]";
+		return "Customer [customer_id=" + customer_id + ", customer_name=" + customer_name + ", mobile=" + mobile
+				+ ", email=" + email + ", address=" + address + "]";
 	}
 	
 }
