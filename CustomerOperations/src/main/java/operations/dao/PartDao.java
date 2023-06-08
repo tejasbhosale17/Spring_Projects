@@ -18,7 +18,7 @@ public class PartDao {
 //-----------------------------------------------------------------------------------
 	
 	public void getAppParts(List<Part> partList) {
-		String q1="select * from part";
+		String q1="select * from parts";
 		try {
 			PreparedStatement pmt = con.prepareStatement(q1);
 			ResultSet rs = pmt.executeQuery();
@@ -35,7 +35,7 @@ public class PartDao {
 //-----------------------------------------------------------------------------------
 
 	public Part findThisPart(int id) {
-		String q2="select * from part where part_id=?";
+		String q2="select * from parts where part_id=?";
 		try {
 			PreparedStatement pmt= con.prepareStatement(q2);
 			pmt.setInt(1, id);
@@ -55,7 +55,7 @@ public class PartDao {
 	//-----------------------------------------------------------------------------------
 
 	public int removeThisPart(int id) {
-		String q3="delete from part where part_id=?";
+		String q3="delete from parts where part_id=?";
 		int npr=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q3);
@@ -65,7 +65,6 @@ public class PartDao {
 //				return npr;
 //			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -76,7 +75,7 @@ public class PartDao {
 
 	//-----------------------------------------------------------------------------------
 	public int updateThisPart(int id, double price) {
-		String q4="update part set price=? where part_id=?";
+		String q4="update parts set price=? where part_id=?";
 		int npu=0;
 		try {
 			PreparedStatement pmt =con.prepareStatement(q4);
@@ -92,7 +91,7 @@ public class PartDao {
 	//-----------------------------------------------------------------------------------
 
 	public int addThisPart(int id, String name, String descrip, double price) {
-		String q5="insert into part values(?,?,?,?)";
+		String q5="insert into parts values(?,?,?,?)";
 		int npa= 0;
 		try {
 			PreparedStatement pmt = con.prepareStatement(q5);

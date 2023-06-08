@@ -2,9 +2,18 @@ package operations.allmenu;
 
 import java.util.Scanner;
 
+
+
+
+enum EmainMenu{
+	EXIT,CUSTOMER,VEHICLE,SERVICE_REQUEST,PART,TODAYSBUSINESS,GIVEN_DATE_BUSINESS,DEFAULT     
+}
+
+
+
 public class TheMostAdvancedMenu {
 
-	public static int menu() {
+	public static EmainMenu menu() {
 		System.out.println("0.Exit");
 		System.out.println("1.Customer");
 		System.out.println("2.Vehicle");
@@ -14,49 +23,50 @@ public class TheMostAdvancedMenu {
 		System.out.println("6.Given Date's Business");
 		System.out.print("Enter your choice = ");
 		System.out.println("");
-		return new Scanner(System.in).nextInt();
+		int choice = new Scanner(System.in).nextInt();
+		return (choice<0 ||choice>6 ? EmainMenu.values()[7] :EmainMenu.values()[choice]);
 	}
 	
 public static void main(String[] args) {
 	System.out.println("Choose The Department");
 
-	int choice;
+	EmainMenu choice;
 	Scanner scan = new Scanner(System.in);
-	while((choice = menu())!=0) {
+	while((choice = menu())!=EmainMenu.EXIT) {
 		switch (choice) {
-		case 1:
+		case CUSTOMER:
 				System.out.println("Customer");
 				AllMenuTogether.ChooseCustomerMain();
 			break;
 
-		case 2:
+		case VEHICLE:
 				System.out.println("");
 				AllMenuTogether.ChooseVehicleMain();
 			break;
 
-		case 3:
+		case SERVICE_REQUEST:
 				AllMenuTogether.ChooseCustomerVehicleMain();
 				System.out.println("");
 				AllMenuTogether.ChooseServiceMenu();
 				AllMenuTogether.ChoosePaymentMenu();
 			break;
 			
-		case 4:
+		case PART:
 				AllMenuTogether.ChoosePartMain();
 				System.out.println("");
 			break;
 			
-		case 5:
+		case TODAYSBUSINESS:
 				AllMenuTogether.TodaysBusiness();
 				System.out.println("");
 			break;
 			
-		case 6:
+		case GIVEN_DATE_BUSINESS:
 				AllMenuTogether.givenDateBusiness();
 				System.out.println("");
 			break;
 		
-		default:
+		case DEFAULT:
 				System.out.println("Wrong choice entered..:(");
 			break;
 		}
