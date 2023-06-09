@@ -45,6 +45,8 @@ public class VehicleService {
 		
 		
 	}
+	
+	
 //------------------------------------------------------------------------------------
 
 	public static void removeVehicle() {
@@ -99,7 +101,6 @@ public class VehicleService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 }

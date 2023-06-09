@@ -51,13 +51,14 @@ public class CustomerService {
 //	
 //-------------------------------------------------------------------------------------
 	public static void getSpecificCustomer() {
-		System.out.println("Enter mobile no to search the customer:");
+		System.out.println("Enter mobile no to search if the customer Exists :");
 		long mobile=scan.nextLong();
 		try {
 			CustomerDao customerDao = new CustomerDao();
 			Customer customer =new Customer();
 			customer=customerDao.getThatCustomer(mobile);
 			if(customer!=null) {
+				System.out.println("Yes, We have this Customer's Details");
 				System.out.println(customer);
 			}else {
 				System.out.println("Customer Does not exists!");

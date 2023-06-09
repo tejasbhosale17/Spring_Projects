@@ -30,7 +30,7 @@ public class CVMenu {
 				break;
 
 			case 2:
-				CustVService.getSpecificCustVehicle();
+				CustVService.findThisVehicle();
 				System.out.println("");
 				break;
 

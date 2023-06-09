@@ -30,8 +30,24 @@ public class CustVService {
 		
 	}
 
-	public static void getSpecificCustVehicle() {
-		// TODO Auto-generated method stub
+	public static void findThisVehicle() {
+		System.out.println("Enter Vehicle Number to check if we have it here:");
+		String vnumber=scan.next();
+		try {
+			custvehicleDao = new CustVehicleDao();
+			Customer_vehicles CV= new Customer_vehicles();
+			CV=custvehicleDao.searchThisVehicle(vnumber);
+			if(CV!=null) {
+				System.out.println("Vehicle Details are here...");
+				System.out.println(CV);
+			}else {
+				System.out.println("Vehicle Does not Exists!");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
 		
 	}
 

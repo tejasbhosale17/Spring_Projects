@@ -46,6 +46,7 @@ public static void CustomerMain() {
 
 		case 5:
 				System.out.println("Add Customer Details:");
+				CustomerService.getSpecificCustomer();
 				CustomerService.addCustomer();
 				System.out.println("Add vehicle Details:");
 //				VehicleService.addVehicle();
